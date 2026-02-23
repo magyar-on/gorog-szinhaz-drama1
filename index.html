@@ -2,280 +2,188 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komplex Antik Feladatsor</title>
+    <title>Komplex Antik Dráma és Színház Feladatlap</title>
     <style>
-        :root { --main-bg: #f8f9fa; --card-bg: #ffffff; --primary: #2c3e50; --accent: #d35400; --success: #27ae60; --error: #c0392b; --border: #bdc3c7; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--main-bg); color: var(--primary); padding: 20px; line-height: 1.6; }
-        .wrapper { max-width: 1000px; margin: 0 auto; }
-        h1, h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; }
-        h1 { color: var(--accent); border-bottom: 4px double var(--primary); padding-bottom: 10px; }
-        h2 { background: var(--primary); color: white; padding: 10px; border-radius: 5px; margin-top: 50px; }
-        .task-card { background: var(--card-bg); border: 1px solid var(--border); border-left: 8px solid var(--accent); padding: 25px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .task-header { font-weight: bold; font-size: 1.2em; border-bottom: 1px solid #eee; margin-bottom: 15px; display: block; color: var(--accent); }
-        input[type="text"], select, textarea { padding: 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 14px; margin: 5px 0; transition: border 0.3s; }
-        input[type="text"]:focus { border-color: var(--accent); outline: none; }
-        button { background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 15px; }
-        button:hover { background: var(--accent); transform: translateY(-2px); }
-        .feedback { margin-top: 15px; padding: 10px; border-radius: 4px; display: none; font-weight: bold; }
-        .correct { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .incorrect { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        :root { --primary: #2c3e50; --accent: #c0392b; --bg: #f4f4f9; --text: #333; --success: #27ae60; --error: #e74c3c; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: var(--primary); border-bottom: 5px solid var(--accent); padding-bottom: 15px; }
+        h2 { background: var(--primary); color: white; padding: 12px; border-radius: 8px; margin-top: 40px; }
+        .task-section { border-left: 6px solid var(--accent); background: #fdfdfd; padding: 20px; margin-bottom: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .task-title { font-weight: bold; color: var(--accent); display: block; margin-bottom: 15px; font-size: 1.1em; }
+        input[type="text"], select { padding: 6px; border: 1px solid #ccc; border-radius: 4px; margin: 2px; }
+        .solution { color: var(--success); font-weight: bold; display: none; margin-left: 10px; font-style: italic; }
         table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background: #f2f2f2; }
-        .img-container { display: flex; justify-content: space-around; gap: 10px; margin: 20px 0; background: #eee; padding: 20px; border-radius: 8px; text-align: center; }
-        .img-box { flex: 1; border: 2px dashed var(--border); padding: 10px; background: #fff; }
-        .cloze-list, .tf-list { list-style: none; padding: 0; }
-        .cloze-list li, .tf-list li { margin-bottom: 12px; }
+        .img-placeholder { background: #eee; border: 2px dashed #bbb; padding: 30px; text-align: center; margin: 15px 0; border-radius: 10px; font-style: italic; }
+        .check-btn { display: block; width: 100%; padding: 20px; background: var(--success); color: white; border: none; border-radius: 10px; font-size: 1.3em; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 40px; }
+        .check-btn:hover { background: #219150; transform: scale(1.02); }
+        .correct-input { background-color: #d4edda !important; }
+        .wrong-input { background-color: #f8d7da !important; }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-    <h1>Antik Görög Színház és Dráma - Interaktív Feladatlap</h1>
+<div class="container">
+    <h1>Ókori Görög Színház, Mondakör és az Antigoné</h1>
 
     <h2>1. Ókori színház és színjátszás</h2>
 
-    <div class="task-card">
-        <span class="task-header">1.1. Rövid válaszos kérdések: A színház alapjai</span>
-        1. Melyik isten ünnepeihez köthető a dráma eredete? <input type="text" id="s1_1"><br>
-        2. Hogy hívják a kar kör alakú táncterét? <input type="text" id="s1_2"><br>
-        3. Mi a neve a kecskemaszkos énekesek dalának? <input type="text" id="s1_3"><br>
-        4. Ki volt az első színész a hagyomány szerint? <input type="text" id="s1_4"><br>
-        5. Hogy hívták a színészek által viselt magasított talpú cipőt? <input type="text" id="s1_5"><br>
-        6. Hány színész szerepelt Szophoklész drámáiban? <input type="text" id="s1_6"><br>
-        <button onclick="checkS1()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">1.1. Rövid válaszok (6 kérdés)</span>
+        1. Melyik isten ünnepeihez köthető a dráma? <input type="text" data-ans="Dionüszosz"> <span class="solution">Dionüszosz</span><br>
+        2. Mi a neve a Dionüszoszról szóló himnikus karnak? <input type="text" data-ans="dithürambosz"> <span class="solution">dithürambosz</span><br>
+        3. Hány ifjúból állt eredetileg a kórus? <input type="text" data-ans="50"> <span class="solution">50</span><br>
+        4. Hogy hívják a kecskemaszkban énekelt dalt? <input type="text" data-ans="tragosz"> <span class="solution">tragosz</span><br>
+        5. Ki volt az első színész a legenda szerint? <input type="text" data-ans="Theszpisz"> <span class="solution">Theszpisz</span><br>
+        6. Milyen cipőt hordtak a színészek? <input type="text" data-ans="kothornosz"> <span class="solution">kothornosz</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">1.2. Lyukas szöveg: A dráma kialakulása</span>
-        <ul class="cloze-list">
-            <li>1. A görög dráma vallási <input type="text" id="l1_1"> ered.</li>
-            <li>2. Az ünneplők eleinte <input type="text" id="l1_2"> viseltek az arcukon.</li>
-            <li>3. A karból először egy <input type="text" id="l1_3"> vált ki, és párbeszédet kezdeményezett.</li>
-            <li>4. Később két színész szerepeltetésével létrejött a drámai <input type="text" id="l1_4">.</li>
-            <li>5. Az athéni <input type="text" id="l1_5"> idején a dráma lett a vezető műnem.</li>
-            <li>6. A nagyszabású ünnepségek miatt állandó, <input type="text" id="l1_6"> színházakra volt szükség.</li>
-        </ul>
-        <button onclick="checkL1()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">1.2. Lyukas szöveg (6 mondat)</span>
+        1. A görög dráma <input type="text" data-ans="vallási"> szertartásokból ered. <span class="solution">vallási</span><br>
+        2. A karból kivált egy szereplő, és <input type="text" data-ans="párbeszédet"> kezdeményezett. <span class="solution">párbeszédet</span><br>
+        3. Az athéni <input type="text" data-ans="demokrácia"> idején lett vezető műnem. <span class="solution">demokrácia</span><br>
+        4. A görög színház szabadtéri volt, azaz <input type="text" data-ans="amfiteátrum">. <span class="solution">amfiteátrum</span><br>
+        5. A sokezer néző befogadására képes nézőtér egy <input type="text" data-ans="hegyoldalba"> volt vájva. <span class="solution">hegyoldalba</span><br>
+        6. A színházak <input type="text" data-ans="akusztikája"> nagyszerű volt. <span class="solution">akusztikája</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">1.3. Hiányos szöveg kiegészítése: A nézőtér</span>
-        1. A görög színház félkör alakú, <input type="text" id="h1_1"> vájt építmény volt. <br>
-        2. Kiváló <input type="text" id="h1_2"> jellemezte, így mindenki hallotta a színészeket. <br>
-        3. A sokezer néző befogadására képes nézőteret <input type="text" id="h1_3">-nak hívták. <br>
-        4. A szegényeknek az állam <input type="text" id="h1_4">-t fizetett, hogy ők is ott lehessenek.
-        <button onclick="checkH1()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">1.3. Kiegészítős szöveg (4 mondat)</span>
+        1. A nézőtér előtt helyezkedett el a kör alakú <input type="text" data-ans="orkesztra">. <span class="solution">orkesztra</span><br>
+        2. A színpad mögött állt a kis templomszerű épület, a <input type="text" data-ans="szkéné">. <span class="solution">szkéné</span><br>
+        3. A színpadon kizárólag <input type="text" data-ans="férfi"> színészek játszhattak. <span class="solution">férfi</span><br>
+        4. A színészek <input type="text" data-ans="maszkot"> viseltek az érzelmek kifejezésére. <span class="solution">maszkot</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">1.4. Párosítás: Fogalmak és jelentések</span>
-        Párosítsd a betűket a számokhoz (A-F)!<br>
-        1. Szkéné | 2. Dithürambosz | 3. Proszkénion | 4. Deus ex machina | 5. Tetralógia | 6. Kothornosz <br>
-        A: Emelőszerkezet az isteneknek | B: Keskeny színpad | C: Négy drámából álló egység | D: Magasított cipő | E: Színpad mögötti épület | F: Kar éneke Dionüszoszról <br>
-        1: <input type="text" size="1" id="p1_1">, 2: <input type="text" size="1" id="p1_2">, 3: <input type="text" size="1" id="p1_3">, 4: <input type="text" size="1" id="p1_4">, 5: <input type="text" size="1" id="p1_5">, 6: <input type="text" size="1" id="p1_6">
-        <button onclick="checkP1()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">1.4. Párosítás (6 elem)</span>
+        A: Deus ex machina | B: Proszkénion | C: Tetralógia | D: Exodikon | E: Epeiszodion | F: Kommosz<br>
+        1. Panaszdal: <input type="text" size="1" data-ans="F"> <span class="solution">F</span> | 2. Emelőgép: <input type="text" size="1" data-ans="A"> <span class="solution">A</span> | 3. Keskeny színpad: <input type="text" size="1" data-ans="B"> <span class="solution">B</span><br>
+        4. Jelenet: <input type="text" size="1" data-ans="E"> <span class="solution">E</span> | 5. Kivonulási ének: <input type="text" size="1" data-ans="D"> <span class="solution">D</span> | 6. Négyes egység: <input type="text" size="1" data-ans="C"> <span class="solution">C</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">1.5. Sorbarendezés: Egy tragédia felépítése</span>
-        Rendezd sorba a szerkezeti elemeket (írj 1-8 számokat)! <br>
-        <input type="text" size="1" id="o1_1"> Epeiszodion (párbeszéd) <br>
-        <input type="text" size="1" id="o1_2"> Parodosz (kar bevonulása) <br>
-        <input type="text" size="1" id="o1_3"> Prologosz (kezdő monológ/dialóg) <br>
-        <input type="text" size="1" id="o1_4"> Exodikon (kivonulási ének) <br>
-        <input type="text" size="1" id="o1_5"> Sztaszimon (álló kardal) <br>
-        <input type="text" size="1" id="o1_6"> Exodosz (végkifejlet) <br>
-        <input type="text" size="1" id="o1_7"> Második epeiszodion <br>
-        <input type="text" size="1" id="o1_8"> Második sztaszimon <br>
-        <button onclick="checkO1()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">1.5. Sorbarendezés (8 elem)</span>
+        Rendezd a tragédia szerkezetét (1-8)!<br>
+        <input type="text" size="1" data-ans="1"> Prologosz | <input type="text" size="1" data-ans="2"> Parodosz | <input type="text" size="1" data-ans="3"> 1. Epeiszodion | <input type="text" size="1" data-ans="4"> 1. Sztaszimon<br>
+        <input type="text" size="1" data-ans="5"> További jelenetek | <input type="text" size="1" data-ans="6"> Exodosz | <input type="text" size="1" data-ans="7"> Kommosz (opcionális) | <input type="text" size="1" data-ans="8"> Exodikon
+        <span class="solution">Sorrend: Prologosz, Parodosz, Epeiszodion, Sztaszimon... Exodosz, Exodikon.</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">1.6. Képes feladat: Színházi vizuális azonosítás</span>
-        
-
-[Image of an ancient Greek theater diagram]
-
-        <div class="img-container">
-            <div class="img-box">A kép: Kerek tánctér</div>
-            <div class="img-box">B kép: Lépcsőzetes sorok</div>
-            <div class="img-box">C kép: Háttérépület</div>
-        </div>
-        Melyik betű jelzi az Orkesztrát? <input type="text" size="1" id="i1_a"> <br>
-        Melyik betű jelzi a Theatront? <input type="text" size="1" id="i1_b"> <br>
-        Melyik betű jelzi a Szkénét? <input type="text" size="1" id="i1_c">
-        <button onclick="checkI1()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">1.6. Teszt (5 kérdés)</span>
+        1. Ki vezette be a 3. színészt? <select data-ans="Szophoklész"><option>-</option><option>Aiszkhülosz</option><option>Szophoklész</option><option>Euripidész</option></select> <span class="solution">Szophoklész</span><br>
+        2. Mi a nézőpénz? <select data-ans="napidíj szegényeknek"><option>-</option><option>belépőjegy ára</option><option>napidíj szegényeknek</option><option>színészek fizetése</option></select> <span class="solution">napidíj szegényeknek</span><br>
+        3. Mikor kezdődtek az előadások? <select data-ans="kora reggel"><option>-</option><option>este</option><option>délben</option><option>kora reggel</option></select> <span class="solution">kora reggel</span><br>
+        4. Mi volt a díszlet Szophoklésznél? <select data-ans="királyi palota"><option>-</option><option>erdő</option><option>királyi palota</option><option>templom</option></select> <span class="solution">királyi palota</span><br>
+        5. Hány antik dráma maradt fenn összesen? <select data-ans="33"><option>-</option><option>33</option><option>100</option><option>12</option></select> <span class="solution">33</span>
     </div>
 
     <h2>2. A thébai mondakör</h2>
 
-    <div class="task-card">
-        <span class="task-header">2.1. Rövid válaszos kérdések: Családi titkok</span>
-        1. Hogy hívják a thébai királyi családot? <input type="text" id="s2_1"><br>
-        2. Ki volt Oidipusz vér szerinti apja? <input type="text" id="s2_2"><br>
-        3. Ki volt Oidipusz felesége és anyja? <input type="text" id="s2_3"><br>
-        4. Melyik városban nevelkedett Oidipusz? <input type="text" id="s2_4"><br>
-        5. Mi a megfejtése a Szfinx rejtvényének? <input type="text" id="s2_5"><br>
-        6. Hová vonult Oidipusz száműzetésbe? <input type="text" id="s2_6"><br>
-        <button onclick="checkS2()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">2.1. Rövid válaszok</span>
+        1. Mi a Labdakidák városa? <input type="text" data-ans="Théba"> <span class="solution">Théba</span><br>
+        2. Kit ölt meg Oidipusz a keresztútnál? <input type="text" data-ans="Laiosz"> <span class="solution">Laiosz (az apját)</span><br>
+        3. Hány gyermeke született Oidipusznak? <input type="text" data-ans="4"> <span class="solution">4</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">2.2. Táblázatkitöltés: A testvérek sorsa</span>
+    <div class="task-section">
+        <span class="task-title">2.2. Lyukas szöveg (Oidipusz sorsa)</span>
+        1. Oidipusz neve azt jelenti: <input type="text" data-ans="dagadt lábú">. <span class="solution">dagadt lábú</span><br>
+        2. A csecsemőt a <input type="text" data-ans="Kitharion"> hegyére vitték. <span class="solution">Kitharion</span><br>
+        3. Oidipusz <input type="text" data-ans="Korinthoszban"> nevelkedett királyfiként. <span class="solution">Korinthoszban</span><br>
+        4. Delphoiban azt jósolták, megöli apját és <input type="text" data-ans="anyját"> veszi el. <span class="solution">anyját</span><br>
+        5. Megfejtette a <input type="text" data-ans="Szfinx"> rejtvényét. <span class="solution">Szfinx</span><br>
+        6. Amikor rájött bűnére, <input type="text" data-ans="megvakította"> magát. <span class="solution">megvakította</span>
+    </div>
+
+    <div class="task-section">
+        <span class="task-title">2.3. Táblázat (Szereplők)</span>
         <table>
-            <tr><th>Név</th><th>Mit tett? / Mi történt vele?</th></tr>
-            <tr><td>Antigoné</td><td><input type="text" id="t2_1"></td></tr>
-            <tr><td>Iszméné</td><td><input type="text" id="t2_2"></td></tr>
-            <tr><td>Eteoklész</td><td><input type="text" id="t2_3"></td></tr>
-            <tr><td>Polüneikész</td><td><input type="text" id="t2_4"></td></tr>
+            <tr><th>Név</th><th>Kapcsolat / Sors</th></tr>
+            <tr><td>Iokaszté</td><td><input type="text" data-ans="Oidipusz anyja és felesége"></td></tr>
+            <tr><td>Antigoné</td><td><input type="text" data-ans="Oidipusz lánya"></td></tr>
+            <tr><td>Eteoklész</td><td><input type="text" data-ans="Polüneikész testvére, Théba védője"></td></tr>
+            <tr><td>Kreón</td><td><input type="text" data-ans="Iokaszté testvére, új király"></td></tr>
         </table>
-        <button onclick="checkT2()">Ellenőrzés</button>
+        <span class="solution">Megoldás: Iokaszté (anya/feleség), Antigoné (leány), Eteoklész (védő), Kreón (sógor/király).</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">2.3. Igaz-Hamis: A jóslat beteljesülése</span>
-        <ul class="tf-list">
-            <li>1. Laiosz király boldogan várta fia születését. <select id="tf2_1"><option>-</option><option>Hamis</option><option>Igaz</option></select></li>
-            <li>2. Oidipusz tudatosan ölte meg az apját a kereszteződésben. <select id="tf2_2"><option>-</option><option>Hamis</option><option>Igaz</option></select></li>
-            <li>3. A Szfinx öngyilkos lett, miután megfejtették a rejtvényét. <select id="tf2_3"><option>-</option><option>Hamis</option><option>Igaz</option></select></li>
-            <li>4. Iokaszté megvakította magát, amikor megtudta az igazat. <select id="tf2_4"><option>-</option><option>Hamis</option><option>Igaz</option></select></li>
-            <li>5. Oidipusz fiai megegyeztek a felváltott uralkodásban. <select id="tf2_5"><option>-</option><option>Hamis</option><option>Igaz</option></select></li>
-        </ul>
-        <button onclick="checkTF2()">Ellenőrzés</button>
-    </div>
-
-    <div class="task-card">
-        <span class="task-header">2.4. Hibakereső: Javítsd a mondatokat!</span>
-        1. "Oidipusz a bokájánál fogva felakasztva halt meg a Kitharionon." <br>
-        Javítás: <input type="text" id="h2_1" style="width:100%"><br>
-        2. "Polüneikész Thébát védte az argoszi seregek ellen." <br>
-        Javítás: <input type="text" id="h2_2" style="width:100%"><br>
-        3. "Kreón Oidipusz fia volt, aki átvette a hatalmat." <br>
-        Javítás: <input type="text" id="h2_3" style="width:100%"><br>
-        <button onclick="checkH2()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">2.4. Képes feladat (A rejtvény)</span>
+        <div class="img-placeholder"></div>
+        1. Mi a Szfinx rejtvényének megfejtése? <input type="text" data-ans="ember"> <span class="solution">ember</span><br>
+        2. Hány lábon jár az "este"? <input type="text" data-ans="3"> <span class="solution">3 (bottal)</span><br>
+        3. Mi történt a szörnnyel a megfejtés után? <input type="text" data-ans="szakadékba vetette magát"> <span class="solution">szakadékba vetette magát</span>
     </div>
 
     <h2>3. Szophoklész: Antigoné</h2>
 
-    <div class="task-card">
-        <span class="task-header">3.1. Feleletválasztós teszt: A dráma konfliktusa</span>
-        1. Mi a központi konfliktus? <br>
-        <input type="radio" name="r3_1" value="a"> A testvérek harca a trónért <br>
-        <input type="radio" name="r3_1" value="b"> Az isteni és az emberi törvény ütközése <br>
-        <input type="radio" name="r3_1" value="c"> A férfiak és nők közötti egyenlőtlenség <br>
-        2. Mi Kreón tragikus bűne? <br>
-        <input type="radio" name="r3_2" value="a"> Megöli Antigonét <br>
-        <input type="radio" name="r3_2" value="b"> A hübrisz, azaz az elvakult gőg <br>
-        <input type="radio" name="r3_2" value="c"> Nem hallgat Iszménére <br>
-        3. Hogyan hal meg Antigoné? <br>
-        <input type="radio" name="r3_3" value="a"> Felakasztja magát <br>
-        <input type="radio" name="r3_3" value="b"> Megkövezik <br>
-        <input type="radio" name="r3_3" value="c"> Méreg által <br>
-        4. Ki próbálja meggyőzni Kreónt érvekkel? <br>
-        <input type="checkbox" class="cb3_4" value="h"> Haimón <input type="checkbox" class="cb3_4" value="t"> Teiresziász <input type="checkbox" class="cb3_4" value="k"> Karvezető <br>
-        5. Mi a katarzis? <br>
-        <input type="radio" name="r3_5" value="a"> A szereplők vitája <br>
-        <input type="radio" name="r3_5" value="b"> Érzelmi megtisztulás a nézőben <br>
-        <input type="radio" name="r3_5" value="c"> A kar éneke <br>
-        <button onclick="checkR3()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">3.1. Rövid válaszok (Konfliktus)</span>
+        1. Kit nem szabad eltemetni? <input type="text" data-ans="Polüneikész"> <span class="solution">Polüneikész</span><br>
+        2. Mi a büntetés a tilalom megszegéséért? <input type="text" data-ans="halál"> <span class="solution">halál (megkövezés)</span><br>
+        3. Ki a "félénk" testvér? <input type="text" data-ans="Iszméné"> <span class="solution">Iszméné</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">3.2. Rövid válaszos kérdések: A szereplők jelleme</span>
-        1. Mi jellemzi Antigoné döntéseit? <input type="text" id="s3_1"><br>
-        2. Mi Iszméné legfőbb motivációja? <input type="text" id="s3_2"><br>
-        3. Kit képvisel a Kar a drámában? <input type="text" id="s3_3"><br>
-        <button onclick="checkS3()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">3.2. Lyukas szöveg (Jellemek)</span>
+        1. Antigoné az <input type="text" data-ans="isteni"> törvényeket képviseli. <span class="solution">isteni</span><br>
+        2. Kreón az <input type="text" data-ans="emberi"> (állami) parancsot erőlteti. <span class="solution">emberi</span><br>
+        3. Kreón bűne az elvakult gőg, a <input type="text" data-ans="hübrisz">. <span class="solution">hübrisz</span><br>
+        4. Haimón Kreón <input type="text" data-ans="fia"> és Antigoné vőlegénye. <span class="solution">fia</span><br>
+        5. Teiresziász a <input type="text" data-ans="vak jós">, aki figyelmeztet. <span class="solution">vak jós</span><br>
+        6. A tragédia végén bekövetkezik a <input type="text" data-ans="katarzis">. <span class="solution">katarzis (megtisztulás)</span>
     </div>
 
-    <div class="task-card">
-        <span class="task-header">3.3. Hiányos mondatok: Értékek pusztulása</span>
-        1. Antigoné egy <input type="text" id="h3_1"> hős, aki elveiért vállalja a halált. <br>
-        2. Kreón bukása jogos büntetés, mert megsértette a világ <input type="text" id="h3_2">. <br>
-        3. Haimón halála jelzi, hogy Kreón a saját <input type="text" id="h3_3"> is elpusztítja. <br>
-        4. A dráma végén az erkölcsi világrend <input type="text" id="h3_4">.
-        <button onclick="checkH3()">Ellenőrzés</button>
+    <div class="task-section">
+        <span class="task-title">3.3. Igaz-Hamis (5 elem)</span>
+        1. Antigoné végig büszke és megingathatatlan. <select data-ans="Igaz"><option>-</option><option>Igaz</option><option>Hamis</option></select> <span class="solution">Igaz</span><br>
+        2. Kreón a nép kérésére azonnal enged. <select data-ans="Hamis"><option>-</option><option>Igaz</option><option>Hamis</option></select> <span class="solution">Hamis</span><br>
+        3. Haimón öngyilkos lesz Antigoné mellett. <select data-ans="Igaz"><option>-</option><option>Igaz</option><option>Hamis</option></select> <span class="solution">Igaz</span><br>
+        4. Eurüdiké Kreón lánya. <select data-ans="Hamis"><option>-</option><option>Igaz</option><option>Hamis</option></select> <span class="solution">Hamis (felesége)</span><br>
+        5. A dráma végén helyreáll a világrend. <select data-ans="Igaz"><option>-</option><option>Igaz</option><option>Hamis</option></select> <span class="solution">Igaz</span>
     </div>
+
+    <div class="task-section">
+        <span class="task-title">3.4. Hibakeresés és javítás</span>
+        1. "Antigonét Kreón karddal öli meg a piacon." <br>Javítás: <input type="text" data-ans="barlangba zárják, felakasztja magát"> <span class="solution">barlangba zárják, ott lesz öngyilkos</span><br>
+        2. "A Kar végig Kreón mellett áll és biztatja." <br>Javítás: <input type="text" data-ans="ingadozik, a végén ellene fordul"> <span class="solution">ingadozik, majd Antigoné mellé áll</span><br>
+        3. "Iszméné a dráma végén Théba királynője lesz." <br>Javítás: <input type="text" data-ans="életben marad, de sorsa ismeretlen"> <span class="solution">életben marad, de nem lesz királynő</span>
+    </div>
+
+    <button class="check-btn" onclick="checkAll()">MEGOLDÁSOK ELLENŐRZÉSE ÉS MUTATÁSA</button>
 
 </div>
 
 <script>
-    function checkS1() {
-        const a = [document.getElementById('s1_1').value.toLowerCase(), document.getElementById('s1_2').value.toLowerCase(), document.getElementById('s1_3').value.toLowerCase(), document.getElementById('s1_4').value.toLowerCase(), document.getElementById('s1_5').value.toLowerCase(), document.getElementById('s1_6').value];
-        if (a[0].includes("dionü") && a[1] === "orkesztra" && a[2] === "tragosz" && a[3].includes("thesz") && a[4] === "kothornosz" && a[5] === "3") alert("Minden válasz helyes!");
-        else alert("Vannak hibák a válaszokban!");
-    }
+    function checkAll() {
+        const inputs = document.querySelectorAll('input[type="text"], select');
+        const solutions = document.querySelectorAll('.solution');
 
-    function checkL1() {
-        const a = [document.getElementById('l1_1').value.toLowerCase(), document.getElementById('l1_4').value.toLowerCase(), document.getElementById('l1_5').value.toLowerCase()];
-        if (a[0].includes("szert") && a[1] === "dialógus" && a[2] === "demokrácia") alert("Kiváló kitöltés!");
-        else alert("Próbáld újra!");
-    }
+        inputs.forEach(input => {
+            const correctAns = input.getAttribute('data-ans').toLowerCase();
+            const userAns = input.value.toLowerCase().trim();
 
-    function checkH1() {
-        const a = [document.getElementById('h1_1').value.toLowerCase(), document.getElementById('h1_2').value.toLowerCase(), document.getElementById('h1_4').value.toLowerCase()];
-        if (a[0].includes("hegy") && a[1] === "akusztika" && a[2] === "nézőpénzt") alert("Helyes kiegészítések!");
-        else alert("Vannak még hiányosságok.");
-    }
+            if (userAns !== "" && (correctAns.includes(userAns) || userAns.includes(correctAns))) {
+                input.classList.add('correct-input');
+                input.classList.remove('wrong-input');
+            } else {
+                input.classList.add('wrong-input');
+                input.classList.remove('correct-input');
+            }
+        });
 
-    function checkP1() {
-        const a = [document.getElementById('p1_1').value, document.getElementById('p1_2').value, document.getElementById('p1_3').value, document.getElementById('p1_4').value, document.getElementById('p1_5').value, document.getElementById('p1_6').value];
-        if (a.join("") === "EFBACD") alert("Tökéletes párosítás!");
-        else alert("Hibás párosítás!");
-    }
+        solutions.forEach(sol => {
+            sol.style.display = 'inline';
+        });
 
-    function checkO1() {
-        const a = [document.getElementById('o1_1').value, document.getElementById('o1_2').value, document.getElementById('o1_3').value, document.getElementById('o1_4').value, document.getElementById('o1_5').value, document.getElementById('o1_6').value];
-        if (a[2] === "1" && a[1] === "2" && a[3] === "8" && a[5] === "7") alert("A sorrend hibátlan!");
-        else alert("Gondold át a dráma menetét!");
-    }
-
-    function checkI1() {
-        if (document.getElementById('i1_a').value === "A" && document.getElementById('i1_b').value === "B" && document.getElementById('i1_c').value === "C") alert("Helyes kép-azonosítás!");
-        else alert("Nézd meg jobban a diagramot!");
-    }
-
-    function checkS2() {
-        const a = [document.getElementById('s2_1').value.toLowerCase(), document.getElementById('s2_2').value.toLowerCase(), document.getElementById('s2_5').value.toLowerCase()];
-        if (a[0].includes("labda") && a[1] === "laiosz" && a[2] === "ember") alert("Minden válasz helyes!");
-        else alert("A nevek vagy a rejtvény nem stimmel.");
-    }
-
-    function checkT2() {
-        if (document.getElementById('t2_3').value.toLowerCase().includes("védte") && document.getElementById('t2_4').value.toLowerCase().includes("támadt")) alert("A testvérek szerepe helyes!");
-        else alert("Emlékezz, ki volt a belső védő és ki a külső támadó!");
-    }
-
-    function checkTF2() {
-        if (document.getElementById('tf2_1').value === "Hamis" && document.getElementById('tf2_2').value === "Hamis" && document.getElementById('tf2_3').value === "Igaz") alert("Helyes logikai válaszok!");
-        else alert("Gondold át a monda eseményeit!");
-    }
-
-    function checkH2() {
-        if (document.getElementById('h2_1').value.toLowerCase().includes("pásztor") && document.getElementById('h2_3').value.toLowerCase().includes("iokaszté testvére")) alert("A javítások megfelelőek!");
-        else alert("Próbáld pontosabban javítani a hibákat.");
-    }
-
-    function checkR3() {
-        const q1 = document.querySelector('input[name="r3_1"]:checked')?.value;
-        const q2 = document.querySelector('input[name="r3_2"]:checked')?.value;
-        const q3 = document.querySelector('input[name="r3_3"]:checked')?.value;
-        const q4 = document.querySelectorAll('.cb3_4:checked');
-        const q5 = document.querySelector('input[name="r3_5"]:checked')?.value;
-        if (q1 === "b" && q2 === "b" && q3 === "a" && q4.length === 3 && q5 === "b") alert("Tökéletes tesztmegoldás!");
-        else alert("Vannak hibás jelölések a tesztben.");
-    }
-
-    function checkS3() {
-        if (document.getElementById('s3_2').value.toLowerCase().includes("félelem")) alert("A jellemábrázolás helyes!");
-        else alert("Iszméné jellemét nézd meg újra!");
-    }
-
-    function checkH3() {
-        if (document.getElementById('h3_1').value.toLowerCase().includes("tragikus") && document.getElementById('h3_4').value.toLowerCase().includes("helyreáll")) alert("Helyes kiegészítések!");
-        else alert("A fogalmak nem pontosak.");
+        window.scrollTo(0, 0);
+        alert("A megoldásokat megjelenítettük a kérdések mellett zöld színnel.");
     }
 </script>
 
